@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep1
+  namespace: ragnar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        envFrom:
+        - secretRef:
+            name: planb
+        volumeMounts:
+        - name: foo
+          mountPath: "/secret/foo"
+          readOnly: true
+      volumes:
+      - name: foo
+        secret:
+          secretName: ragnar
+
