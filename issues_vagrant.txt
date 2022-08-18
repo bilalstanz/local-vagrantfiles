@@ -1,0 +1,19 @@
+
+issue: vagrant mount.nfs: requested NFS version or transport protocol is not supported
+
+
+solu:
+
+https://github.com/hashicorp/vagrant/issues/9666
+
+I faced the similar problem on my ubuntu 18.04 host but in my case I found vagrant generated duplicate record in /etc/exports. I delete one of it and reload the box then the problem solved.
+
+
+
+
+config.vm.synced_folder "/home/bilal/vmshare", "/home/vagrant/vagrant_data", type: "nfs"
+
+config.ssh.insert_key = false
+config.ssh.private_key_path = ['~/.vagrant.d/insecure_private_key', '~/.ssh/id_rsa']
+config.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
+
