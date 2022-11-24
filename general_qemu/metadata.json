@@ -1,0 +1,16 @@
+
+
+{
+    "name": "Apiculus/db",
+    "description": "This box contains Apiculus db deployment on Ubuntu 18.04 LTS 64-bit.",
+    "versions": [
+      {
+        "version": "0.1.0",
+        "providers": [
+          {
+            "name": "libvirt"
+          }
+        ]
+      }
+    ]
+  }
