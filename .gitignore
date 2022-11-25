@@ -4,3 +4,4 @@ venv
 
 .vagrant
 vagrant-box
+k3s-playbook
