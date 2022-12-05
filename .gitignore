@@ -5,3 +5,4 @@ venv
 .vagrant
 vagrant-box
 k3s-playbook
+awx_deployment
